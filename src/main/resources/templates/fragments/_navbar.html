@@ -1,0 +1,49 @@
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light"
+	style="margin-bottom: 0; background-color: #00d9ff0e !important;">
+	<div class="container-fluid">
+		<a class="img-thumbmail" href="#">
+			<img src="/IMGs/home/logo.webp" style="width: 400px;" class="rounded-pill" alt="NASA Airline">
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav align-items-center">
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/destinos">Destinos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/promocoes">Promoções</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/contato">Contato</a>
+				</li>
+
+				<div style="display: contents;" th:if="${#authorization.expression('isAuthenticated()')}">
+
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/clientes}">Cadastros</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="btn btn-primary" th:href="@{/logout}"><i class="bi bi-box-arrow-left"></i>
+							Logout
+						</a>
+					</li>
+
+				</div>
+
+				<div th:unless="${#authorization.expression('isAuthenticated')}">
+					<a href="/login" class="btn btn-primary"><i class="bi bi-play"></i> Login</a>
+					<a th:href="@{/register}" class="btn btn-primary"><i class="bi bi-person-add"></i> Registrar-se</a>
+				</div>
+
+			</ul>
+
+		</div>
+	</div>
+</nav>

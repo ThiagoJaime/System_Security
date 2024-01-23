@@ -1,0 +1,40 @@
+<html th:replace="~{layout :: layout ('Home', ~{::main}, ~{::styles}, ~{::script})}">
+
+<head></head>
+
+<body>
+
+	<main>
+		<section class="get-in-touch">
+			<h1 class="title">Contate-nos</h1>
+			<form class="contact-form row">
+				<div class="form-field col-lg-6">
+					<input id="name" class="input-text js-input" type="text" required>
+					<label class="label" for="name">Nome</label>
+				</div>
+				<div class="form-field col-lg-6 ">
+					<input id="email" class="input-text js-input" type="email" required>
+					<label class="label" for="email">E-mail</label>
+				</div>
+				<div class="form-field col-lg-6 ">
+					<input id="company" class="input-text js-input" type="text" required>
+					<label class="label" for="company">Nome da Empresa</label>
+				</div>
+				<div class="form-field col-lg-6 ">
+					<input id="phone" class="input-text js-input" type="text" required>
+					<label class="label" for="phone">Número de Contato</label>
+				</div>
+				<div class="form-field col-lg-12">
+					<input id="message" class="input-text js-input" type="text" required>
+					<label class="label" for="message">Mensagem</label>
+				</div>
+				<div class="form-field col-lg-12 d-flex justify-content-center">
+					<input class="submit-btn" type="submit" value="Envie">
+				</div>
+			</form>
+		</section>
+	</main>
+	
+</body>
+
+</html>

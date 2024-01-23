@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout ('Compra', ~{::main}, ~{::styles}, ~{::script})}">
+
+
+<head></head>
+
+<body>
+
+	<main>
+		<section class="py-5 container">
+			<div class="card shadow border-0">
+				<div class="card-header border-0 py-4 px-5">
+					<h5>Reserva | Dados Cadastrais</h5>
+				</div>
+				<div class="p-5">
+					<form th:object="${reservaDto}" method="post">
+						<input type="hidden" th:field="*{id}" />
+
+						<div class="mb-4 input-container">
+							<label for="Cliente">Cliente</label>
+							
+							<select class="form-select " id="cliente" th:field="*{cliente}">
+								<option value="">Escolha um cliente</option>
+								<option th:each="c : ${cliente}" th:value="${c.id}">
+									<span th:text="${c.nome}"></span>
+								</option>
+							</select>
+							<small th:if="${#fields.hasErrors('cliente')}" class="text-danger"
+								th:text="${#fields.errors('cliente')}"></small>
+						</div>
+
+						<div class="mb-4 input-container">
+							<label for="Destino">Destino</label>
+						
+							<select class="form-select " id="destino" th:field="*{destino}">
+								<option value="">Escolha um destino</option>
+								<option th:each="d : ${destino}" th:value="${d.id}">
+									<span th:text="${d.pais}"></span>
+								</option>
+							</select>
+							<small th:if="${#fields.hasErrors('destino')}" class="text-danger"
+								th:text="${#fields.errors('destino')}"></small>
+						</div>
+						
+						<div class="mb-4 input-container">
+							<label for="Destino">Promoção</label>
+						
+							<select class="form-select " id="destino" th:field="*{destino}">
+								<option value="">Escolha uma Promoção</option>
+								<option th:each="p : ${promocao}" th:value="${p.id}">
+									<span th:text="${p.preco}"></span>
+								</option>
+							</select>
+							<small th:if="${#fields.hasErrors('promocao')}" class="text-danger"
+								th:text="${#fields.errors('promocao')}"></small>
+						</div>
+						
+						<div class="mb-3 input-container">
+							<label for="dataIda">Data Ida</label>
+							
+							<input class="form-control " type="date" id="dataIda"
+								th:field="*{dataIda}" />
+							<small th:if="${#fields.hasErrors('dataIda')}" class="text-danger"
+								th:text="${#fields.errors('dataIda')}"></small>
+						</div>
+
+						<div class="mb-3 input-container">
+							<label for="dataIda">Data Volta</label>
+							
+							<input class="form-control " type="date" id="dataVolta"
+								th:field="*{dataVolta}" />
+							<small th:if="${#fields.hasErrors('dataVolta')}" class="text-danger"
+								th:text="${#fields.errors('dataVolta')}"></small>
+						</div>
+
+						<div class="d-flex gap-2">
+							<button type="submit" class="btn btn-primary">Salvar</button>
+							<a href="/reservas" class="btn btn-danger">Cancelar</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+
+</body>
+
+</html>
